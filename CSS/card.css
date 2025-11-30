@@ -1,0 +1,294 @@
+:root {
+    --primary-dark: #14162b; /* Deep dark blue for nav/footer */
+    --accent-pink: #ff9eb5;
+    --accent-orange: #ff6b35;
+    --accent-blue: #3facff;
+    --text-light: #ffffff;
+    --card-bg: #f8f9fa; /* Not directly used for cart cards in your current setup */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', 'Arial', sans-serif; /* Fallback to Arial if Roboto not loaded */
+    color: var(--text-light);
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+    background-color: #0f0f1a; /* Default background if the background-content-wrapper doesn't cover */
+}
+
+/* New wrapper for the content and background image, enabling the overlay */
+.background-content-wrapper {
+    position: relative;
+    min-height: calc(100vh - 12rem - 130px); /* Adjust height: 100vh minus navbar height and footer height */
+    /* Assuming navbar height is ~12rem and footer is ~130px. Adjust these values */
+
+    /* IMPORTANT: Replace 'path/to/your/background_image.jpg' with the actual path */
+    background-image: url('../img/cart.png'); /* Example: A cool anime collage */
+
+    background-size: cover;
+    background-attachment: fixed; /* Keeps background fixed during scroll */
+    display: flex; /* Helps ensure content pushes footer down */
+    flex-direction: column;
+}
+
+/* --- Custom Typography --- */
+h1, h2, h3, .brand-font {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+.manga-logo {
+    font-family: 'Bangers', cursive;
+    font-size: 4rem;
+    background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 50%, #ff6b35 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* --- Navbar --- */
+.navbar-custom {
+    background-color: var(--primary-dark);
+    padding: 25px 0 35px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    height: 12rem; /* Consistent height for the nav */
+    position: relative;
+    z-index: 2; /* Ensures nav is above the background overlay */
+}
+
+.nav-link {
+    color: #ccc !important;
+    font-weight: 500;
+    font-size: 1.2rem; /* Slightly reduced font size for nav links */
+    margin: 0 15px; /* Increased margin for better spacing */
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--text-light) !important;
+}
+
+.search-bar {
+    background: #fff;
+    border-radius: 50px;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    width: 280px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    width: 100%;
+    margin-left: 10px;
+    color: #333;
+}
+
+.btn-login {
+    background-color: var(--accent-pink);
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px 20px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+.btn-login:hover {
+    background-color: #ffc2d1; /* Lighter pink on hover */
+}
+
+.icon-btn {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+.icon-btn:hover {
+    color: var(--accent-pink); /* Highlight on hover */
+}
+
+
+/* --- Main Content Area --- */
+
+
+
+main.container {
+    position: relative;
+    z-index: 1; /* Ensure main content is above the overlay */
+    flex-grow: 1; /* Allows main content to take up available space */
+}
+
+.cart-card, .order-summary-card {
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly darker card background for contrast */
+    border: none;
+    border-radius: 12px; /* Slightly more rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.cart-items .border-bottom {
+    border-color: rgba(255, 255, 255, 0.1) !important; /* Subtle border for separation */
+}
+
+.input-group-sm .form-control {
+    background-color: rgba(70, 70, 70, 0.8) !important; /* Darker background for quantity input */
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.input-group-sm .btn-outline-secondary {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ccc;
+    background-color: rgba(80, 80, 80, 0.8);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.input-group-sm .btn-outline-secondary:hover {
+    background-color: #999; /* Lighter on hover */
+    color: #222; /* Darker text for contrast */
+}
+
+.summary-list .list-group-item {
+    background-color: transparent !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #fff;
+}
+
+.summary-list .list-group-item:last-child {
+    border-bottom: none !important;
+}
+
+.total-amount {
+    font-weight: bold;
+    font-size: 1.2em; /* Slightly larger total amount */
+    color: var(--accent-blue); /* Highlight total amount */
+}
+
+.btn-proceed-checkout {
+    background-color: #e50914; /* Netflix red, or a custom accent color */
+    color: #fff;
+    border: none;
+    padding: 12px 25px; /* Larger button */
+    border-radius: 8px; /* Slightly more rounded */
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-proceed-checkout:hover {
+    background-color: #f40612; /* Slightly lighter red on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+    box-shadow: 0 4px 8px rgba(229, 9, 20, 0.4); /* Red glow on hover */
+}
+
+/* Manga thumbnail styling */
+.cart-items .col-md-2 img {
+    width: 70px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center top;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: var(--primary-dark);
+    padding: 60px 0 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    z-index: 2; /* Ensures footer is above the background overlay */
+    margin-top: auto; /* Pushes the footer to the bottom if content is short */
+}
+
+.footer-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--accent-blue); /* Highlight footer headings */
+}
+
+.social-link {
+    display: inline-flex;
+    width: 45px; /* Slightly larger social icons */
+    height: 45px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem; /* Slightly larger icon font size */
+    margin: 0 10px;
+    transition: transform 0.2s, background-color 0.3s;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.08); /* More subtle background */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Specific social colors for the icon itself */
+.social-fb i { color: #1877f2; }
+.social-insta i {
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.social-tw i { color: #1da1f2; }
+.social-disc i { color: #5865F2; }
+
+.social-link:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly brighter background on hover */
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: var(--accent-pink); /* Highlight links on hover */
+}
+
+/* Ensure privacy/terms links are dark text on white background as in original intent */
+.footer-links.bg-white a {
+    color: #333 !important;
+}
+.footer-links.bg-white a:hover {
+    color: var(--accent-blue) !important; /* Dark text hover for readability */
+}
+
+
+.footer-logo {
+    font-family: 'Bangers', cursive;
+    font-size: 2.5rem; /* Slightly larger footer logo */
+    background: linear-gradient(to bottom, #4facfe, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+}
+
+.contact-info p {
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+.contact-info p:first-of-type, .contact-info p:nth-of-type(3) {
+    font-weight: bold;
+    color: #fff;
+    margin-top: 10px; /* Add some space above headings */
+}
+
+.copyright-text {
+    color: rgba(255, 255, 255, 0.6) !important; /* Slightly lighter copyright text */
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
