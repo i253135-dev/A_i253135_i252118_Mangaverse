@@ -197,6 +197,28 @@
         .border-teal { border-color: #20c997; color: #20c997; }
         .border-blue { border-color: #0d6efd; color: #0d6efd; }
 
+         .disclaimer-bar {
+            background-color: #251227; /* Deep purple/dark accent */
+            color: #ffcccc;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 3px solid var(--accent-pink);
+            border-bottom: 3px solid var(--accent-pink);
+            margin-top: 50px;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
+        }
+        .disclaimer-bar strong {
+            font-size: 1.1rem;
+            color: var(--accent-pink);
+            font-weight: 700;
+        }
+        .disclaimer-bar i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
          footer {
             background-color: var(--primary-dark);
             padding: 60px 0 20px;
