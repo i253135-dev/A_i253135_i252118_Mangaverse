@@ -1,0 +1,330 @@
+ /* --- Global Variables (Merged) --- */
+        :root {
+            --primary-dark: #14162b; /* Deep dark blue for nav/footer/body */
+            --accent-pink: #ff9eb5;
+            --accent-orange: #ff6b35;
+            --accent-blue: #3facff;
+            --text-light: #ffffff;
+            --card-bg: #f8f9fa;
+
+            /* Checkout Form specific colors */
+            --section-title-color: #555c87; 
+            --title-font: 'Oswald', sans-serif;
+            --body-font: 'Roboto', sans-serif;
+            --action-button-color: #5d67e6;
+            --cancel-button-color: #f0f0f0;
+            --cancel-text-color: #6c757d;
+            --input-border-color: #ced4da;
+            --input-focus-color: #8c93e4;
+        }
+
+        /* --- Body & General Layout --- */
+        body {
+            font-family: var(--body-font);
+            background-color: #0f0f1a; /* Dark background from MangaVerse code */
+            color: var(--text-light);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* --- Custom Typography --- */
+        h1, h2, h3, .brand-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* --- MangaVerse Logo --- */
+        .manga-logo {
+            font-family: 'Bangers', cursive;
+            font-size: 4rem;
+            background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 50%, #ff6b35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* --- Navbar --- */
+        .navbar-custom {
+            background-color: var(--primary-dark);
+            padding: 25px 0 35px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            height: 12rem;
+        }
+
+        .nav-link {
+            color: #ccc !important;
+            font-weight: 500;
+            font-size: 1.2rem; /* Adjusted for better fit */
+            margin: 0 10px;
+            transition: color 0.3s;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .nav-link:hover {
+            color: var(--text-light) !important;
+        }
+
+        .search-bar {
+            background: #fff;
+            border-radius: 50px;
+            padding: 5px 20px;
+            display: flex;
+            align-items: center;
+            width: 280px;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            width: 100%;
+            margin-left: 10px;
+            color: #333;
+        }
+
+        .btn-login {
+            background-color: var(--accent-pink);
+            color: #000;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 5px 20px;
+            border: none;
+        }
+        
+        .icon-btn {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-left: 15px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* --- Checkout Container (Replaced light background with dark) --- */
+        .checkout-container {
+            padding: 50px 0 100px 0;
+            font-family: var(--body-font);
+            background-color: #D9D9D9;
+        }
+
+        /* 2. The Form Card (White background area) */
+        .checkout-form-card {
+            background-color: #ffffff;
+            width: 90%;
+            max-width: 900px;
+            padding: 40px 60px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+            border-radius: 8px;
+            margin: 0 auto;
+        }
+        
+        /* 3. Section Titles (Personal Details, Payment Details, Shipping Address) */
+        .section-title {
+            font-family: var(--title-font);
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--section-title-color);
+            margin-top: 35px;
+            margin-bottom: 25px;
+            text-transform: capitalize; 
+            letter-spacing: 0.5px;
+        }
+
+        /* 4. Form Labels and Inputs */
+        .form-label {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            border-radius: 4px;
+            border: 1px solid var(--input-border-color);
+            padding: 10px 15px;
+            height: auto; 
+            font-size: 0.95rem;
+            color: #495057;
+        }
+
+        .form-control:focus {
+            border-color: var(--input-focus-color);
+            box-shadow: 0 0 0 0.2rem rgba(93, 103, 230, 0.25); 
+        }
+
+        /* 5. Payment Methods Icons (Updated as requested in previous turn) */
+        .payment-methods {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .payment-method-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 25px;
+            width: auto;
+            min-width: 45px;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        
+        .visa-icon {
+            background-color: #1a1e8a;
+            color: white;
+            line-height: 20px;
+            padding: 0 5px;
+        }
+        .stripe-icon {
+            background-color: #5433ff;
+            color: white;
+            font-size: 0.75rem;
+            padding: 0 6px;
+        }
+        .paypal-icon {
+            background-color: #0079c1;
+            color: white;
+            font-size: 0.75rem;
+            padding: 0 6px;
+            border-radius: 5px;
+        }
+        .mastercard-icon {
+            background: linear-gradient(to right, #eb001b 50%, #ff5f00 50%);
+            color: white;
+            font-size: 0.7rem;
+            padding: 0 6px;
+        }
+        .gpay-icon {
+            background-color: white;
+            color: #555;
+            border: 1px solid #ddd;
+            font-size: 0.75rem;
+            padding: 0 6px;
+        }
+        
+        /* 6. Action Buttons */
+        .action-buttons {
+            margin-top: 40px;
+            display: flex;
+            justify-content: flex-end; 
+            gap: 20px;
+        }
+
+        .btn-checkout {
+            background-color: var(--action-button-color);
+            color: white;
+            border: 1px solid var(--action-button-color);
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-checkout:hover {
+            background-color: #4a54d6;
+            color: white;
+            border-color: #4a54d6;
+        }
+
+        .btn-cancel {
+            background-color: var(--cancel-button-color);
+            color: var(--cancel-text-color);
+            border: 1px solid #c7c7c7;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .btn-cancel:hover {
+            background-color: #e0e0e0;
+            color: var(--cancel-text-color);
+        }
+
+        /* --- Disclaimer Bar --- */
+        .disclaimer-bar {
+            background-color: #251227;
+            color: #ffcccc;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 3px solid var(--accent-pink);
+            border-bottom: 3px solid var(--accent-pink);
+            margin-top: 50px;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
+        }
+       
+
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary-dark);
+            padding: 60px 0 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-heading {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: transform 0.2s;
+            text-decoration: none;
+        }
+        
+        .social-fb { color: #1877f2; }
+        .social-insta { 
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .social-tw { color: #1da1f2; }
+        .social-disc { color: #5865F2; }
+
+        .social-link:hover { transform: scale(1.1); }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin: 0 5px;
+        }
+        
+        .footer-logo {
+            font-family: 'Bangers', cursive;
+            font-size: 2rem;
+            background: linear-gradient(to bottom, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contact-info p { margin-bottom: 5px; }
+
+        .copyright-text {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+        
+     
+       
