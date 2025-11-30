@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MangaVerse - About Us</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@300;400;500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar-custom">
+        <div class="container">
+            <!-- Row 1: Navigation Links (Centered at top) -->
+            <div class="d-flex justify-content-center mb-4">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Browse Manga</a>
+                <a href="#" class="nav-link text-white">About us</a>
+                <a href="#" class="nav-link">Contact us</a>
+            </div>
+
+            <!-- Row 2: Search - Logo - Actions -->
+            <div class="d-flex justify-content-between align-items-center">
+                
+                <!-- Left: Search (Fixed width to ensure Logo centering) -->
+                <div class="d-none d-md-block" style="width: 300px;">
+                    <div class="search-bar">
+                        <i class="fas fa-search text-muted"></i>
+                        <input type="text" placeholder='Search "one piece"...'>
+                    </div>
+                </div>
+
+                <!-- Center: Logo (Now prominent and centered) -->
+                <div class="text-center">
+                    <div class="manga-logo">MANGAVERSE</div>
+                </div>
+
+                <!-- Right: Login & Icons (Fixed width to ensure Logo centering) -->
+                <div class="d-flex align-items-center justify-content-end" style="width: 300px;">
+                    <button class="btn btn-login me-3">Login</button>
+                    <div class="icon-btn"><i class="far fa-heart"></i></div>
+                    <div class="icon-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5rem;">1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+</body>
+</html>
