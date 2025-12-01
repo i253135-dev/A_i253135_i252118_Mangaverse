@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MangaVerse Home Spotlight</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS Variables (Shared) --- */
+        :root {
+            --primary-dark: #14162b; /* Deep dark blue for nav/footer */
+            --accent-pink: #ff9eb5;
+            --accent-blue: #3facff;
+            --text-light: #ffffff;
+        }
+
+        /* --- Global Resets & Base Styles --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', 'Arial', sans-serif;
+            color: var(--text-light);
+            background-color: #0f0f1a;
+        }
+        h1, h2, h3, .brand-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        .container {
+            /* Standard container max width for the header/footer */
+            max-width: 1140px; 
+        }
+
+        /* ---------------------------------- */
+        /* --- A. HEADER Specific Styles --- */
+        /* ---------------------------------- */
+        .navbar-custom {
+            background-color: var(--primary-dark);
+            padding: 25px 0 35px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            height: 12rem;
+            position: relative;
+            z-index: 2;
+        }
+        .nav-link {
+            color: #ccc !important;
+            font-weight: 500;
+            font-size: 1.2rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: var(--text-light) !important;
+        }
+        .manga-logo {
+            font-family: 'Bangers', cursive;
+            font-size: 4rem;
+            background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 50%, #ff6b35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+        }
+        .search-bar {
+            background: #fff;
+            border-radius: 50px;
+            padding: 5px 20px;
+            display: flex;
+            align-items: center;
+            width: 280px;
+        }
+        .search-bar input {
+            border: none;
+            outline: none;
+            width: 100%;
+            margin-left: 10px;
+            color: #333;
+        }
+        .btn-login {
+            background-color: var(--accent-pink);
+            color: #000;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 5px 20px;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-login:hover {
+            background-color: #ffc2d1;
+        }
+        .icon-btn {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-left: 15px;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .icon-btn:hover {
+            color: var(--accent-pink);
+        }
+
+        /* ------------------------------------------- */
+        /* --- B. SPOTLIGHT CARD (MAIN CONTENT) Styles --- */
+        /* ------------------------------------------- */
+        .bg-dark-blue {
+            background-color: #0f0f1a;
+            width: 100%;
+        }
+        .spotlight-card {
+            max-width: 1200px;
+            /* FIX 1: Reduced height slightly for better balance */
+            height: 500px; 
+            background-color: #1a1e30;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            position: relative;
+        }
+        .spotlight-card .row {
+            height: 100%;
+        }
+        .manga-cover-container {
+            /* FIX 2: Reduced max-width for better proportions */
+            width: 180px; 
+            max-width: 180px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            z-index: 5;
+        }
+        .manga-cover {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .manga-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            color: var(--accent-blue);
+            line-height: 1.1;
+            font-weight: 700;
+            text-shadow: 2px 2px #0f0f1a;
+        }
+        .dots-container .dot {
+            height: 10px;
+            width: 10px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .dots-container .active-dot {
+            background-color: var(--accent-pink);
+        }
+        .character-art-container {
+            position: relative;
+            background-color: #384252;
+            overflow: hidden; /* Added to clip the image when pushing it off-screen */
+        }
+        .character-art-image {
+            position: absolute;
+            bottom: 0;
+            /* FIX 3: Push image slightly off-screen to prevent content overlap */
+            right: -50px; 
+            /* FIX 4: Increased height for better background coverage */
+            height: 110%; 
+            width: auto;
+            object-fit: cover; 
+            /* Filter to give it a more stylized/line-art look against the background */
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); 
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 992px) {
+            .manga-title {
+                font-size: 2.5rem;
+            }
+            .spotlight-card {
+                height: 450px;
+            }
+        }
+        @media (max-width: 768px) {
+            .spotlight-card {
+                height: auto;
+                margin: 20px;
+            }
+            .spotlight-card .col-6 {
+                width: 100%;
+                text-align: center;
+                padding: 30px;
+            }
+            .character-art-container {
+                display: none !important; /* Hide character art on small screens */
+            }
+            .manga-cover-container {
+                width: 150px;
+                margin: 0 auto 20px;
+            }
+            .manga-title {
+                text-align: center;
+            }
+            .dots-container {
+                margin: 0 auto;
+            }
+        }
+
+        /* ---------------------------------- */
+        /* --- C. FOOTER Specific Styles --- */
+        /* ---------------------------------- */
+        footer {
+            background-color: var(--primary-dark);
+            padding: 60px 0 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            z-index: 2;
+        }
+        .footer-heading {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+        }
+        .footer-logo {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5rem;
+            background: linear-gradient(to bottom, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+        }
+        .contact-info p {
+            margin-bottom: 5px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+        .contact-info p:first-of-type, .contact-info p:nth-of-type(3) {
+            font-weight: bold;
+            color: #fff;
+            margin-top: 10px;
+        }
+        .copyright-text {
+            color: rgba(255, 255, 255, 0.6) !important;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+        .social-link {
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin: 0 10px;
+            transition: transform 0.2s, background-color 0.3s;
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .social-fb i { color: #1877f2; }
+        .social-insta i {
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .social-tw i { color: #1da1f2; }
+        .social-disc i { color: #5865F2; }
+        .social-link:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin: 0 5px;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: var(--accent-pink);
+        }
+        .footer-links.bg-white a {
+            color: #333 !important;
+        }
+        .footer-links.bg-white a:hover {
+            color: var(--accent-blue) !important;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar-custom">
+        <div class="container">
+            <div class="d-flex justify-content-center mb-4">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Browse Manga</a>
+                <a href="#" class="nav-link text-white">About us</a>
+                <a href="#" class="nav-link">Contact us</a>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center">
+                
+                <div class="d-none d-md-block" style="width: 300px;">
+                    <div class="search-bar">
+                        <i class="fas fa-search text-muted"></i>
+                        <input type="text" placeholder='Search "one piece"...'>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <div class="manga-logo">MANGAVERSE</div>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-end" style="width: 300px;">
+                    <button class="btn btn-login me-3">Login</button>
+                    <div class="icon-btn"><i class="far fa-heart"></i></div>
+                    <div class="icon-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5rem;">1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="d-flex justify-content-center align-items-center vh-100 bg-dark-blue">
+        <div class="spotlight-card container-fluid">
+            <div class="row h-100">
+                
+                <div class="col-6 d-flex flex-column justify-content-center align-items-start p-5">
+                    <div class="manga-cover-container">
+                        <img src="https://i.imgur.com/mYvYv0z.jpeg" alt="Jujutsu Kaisen Volume 1 Cover" class="manga-cover">
+                    </div>
+                    <h2 class="manga-title mt-4">Jujutsu Kaisen <br> Volume 1</h2>
+                    
+                    <div class="dots-container mt-3">
+                        <span class="dot active-dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+
+                <div class="col-6 character-art-container d-none d-md-flex"> 
+                    <img src="https://i.imgur.com/gK2gP8p.png" alt="Anime Character Line Art" class="character-art-image">
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row align-items-center text-center text-md-start">
+                
+                <div class="col-md-4 mb-4 mb-md-0 text-center text-md-start">
+                    <div class="footer-logo mb-2">MANGAVERSE</div>
+                    <small class="copyright-text">&copy; MANGAVERSE TO ALL RIGHTS RESERVED</small>
+                </div>
+
+                <div class="col-md-4 mb-4 mb-md-0 text-center">
+                    <div class="footer-heading">CONTACT</div>
+                    <div class="contact-info">
+                        <p>Email</p>
+                        <p>support@mangaverse.com</p>
+                        <p>Phone</p>
+                        <p>+92253135000</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 text-center text-md-end">
+                    <div class="footer-heading">JOIN NOW</div>
+                    <div class="mb-3">
+                        <a href="#" class="social-link social-fb"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link social-insta"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link social-tw"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link social-disc"><i class="fab fa-discord"></i></a>
+                    </div>
+                    <div class="footer-links bg-white d-inline-block px-3 py-1 rounded text-dark">
+                        <a href="#" class="text-dark fw-bold">About us</a> | 
+                        <a href="#" class="text-dark">Privacy Policy</a> | 
+                        <a href="#" class="text-dark">Terms</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
