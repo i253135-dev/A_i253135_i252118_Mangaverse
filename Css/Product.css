@@ -1,0 +1,291 @@
+/* --- CSS Variables (Shared) --- */
+:root {
+    --primary-dark: #14162b; /* Deep dark blue for nav/footer */
+    --accent-pink: #ff9eb5;
+    --accent-blue: #3facff;
+    --text-light: #ffffff;
+}
+
+/* --- Global Resets & Base Styles --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    color: var(--text-light);
+    background-color: #0f0f1a;
+}
+h1, h2, h3, .brand-font {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+/* ---------------------------------- */
+/* --- A. HEADER Specific Styles --- */
+/* ---------------------------------- */
+.navbar-custom {
+    background-color: var(--primary-dark);
+    padding: 25px 0 35px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    height: 12rem;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-link {
+    color: #ccc !important;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--text-light) !important;
+}
+
+.manga-logo {
+    font-family: 'Bangers', cursive;
+    font-size: 4rem;
+    background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 50%, #ff6b35 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+}
+
+.search-bar {
+    background: #fff;
+    border-radius: 50px;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    width: 280px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    width: 100%;
+    margin-left: 10px;
+    color: #333;
+}
+
+.btn-login {
+    background-color: var(--accent-pink);
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px 20px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+.btn-login:hover {
+    background-color: #ffc2d1;
+}
+
+.icon-btn {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+.icon-btn:hover {
+    color: var(--accent-pink);
+}
+
+/* ------------------------------------------- */
+/* --- B. PRODUCT GRID (MAIN CONTENT) Styles --- */
+/* ------------------------------------------- */
+
+/* Base Styles */
+.bg-dark-gray {
+    background-color: #31353e; /* Dark background color */
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1000px; /* Limit the width of the grid */
+}
+
+/* Filter Icon Styling */
+.filter-icon-container {
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+.filter-icon {
+    font-size: 2rem;
+    color: #aaaaaa;
+}
+
+/* CSS Grid for Product Layout (Most important part) */
+.manga-grid {
+    display: grid;
+    /* Create a responsive grid: start with 2 columns, expand up to 4 */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; /* Spacing between cards */
+}
+
+/* Individual Manga Card Styling */
+.manga-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    background-color: transparent;
+    position: relative; /* Context for the rating badge */
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.manga-card:hover {
+    transform: translateY(-5px);
+}
+
+.manga-cover {
+    width: 100%;
+    max-width: 180px; /* Max width for the cover image */
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    margin-bottom: 15px;
+}
+
+/* Rating Badge */
+.rating-badge {
+    position: absolute;
+    top: 10px; /* Adjusted to new position */
+    left: 10px; /* Adjusted to new position */
+    transform: none; /* Removed centering transform */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white to match the image */
+    color: white;
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    z-index: 10;
+}
+
+
+/* Text Styling */
+.manga-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #dddddd;
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+.manga-title small {
+    font-size: 0.8rem;
+    color: #aaaaaa;
+}
+
+.manga-price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ff6347; /* Red/Orange for price */
+    margin-top: 5px;
+}
+
+/* Adjustments for the Bleach card to keep the image centered */
+.manga-card:nth-child(4) .manga-title {
+    min-height: 40px; /* Ensure title lines up when a shorter title is used */
+}
+
+
+/* ---------------------------------- */
+/* --- C. FOOTER Specific Styles --- */
+/* ---------------------------------- */
+footer {
+    background-color: var(--primary-dark);
+    padding: 60px 0 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.footer-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--accent-blue);
+}
+
+.footer-logo {
+    font-family: 'Bangers', cursive;
+    font-size: 2.5rem;
+    background: linear-gradient(to bottom, #4facfe, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+}
+
+.contact-info p {
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+.contact-info p:first-of-type, .contact-info p:nth-of-type(3) {
+    font-weight: bold;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.copyright-text {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.social-link {
+    display: inline-flex;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin: 0 10px;
+    transition: transform 0.2s, background-color 0.3s;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Specific social colors for the icon itself */
+.social-fb i { color: #1877f2; }
+.social-insta i {
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.social-tw i { color: #1da1f2; }
+.social-disc i { color: #5865F2; }
+
+.social-link:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: var(--accent-pink);
+}
+
+/* Ensure privacy/terms links are dark text on white background as in original intent */
+.footer-links.bg-white a {
+    color: #333 !important;
+}
+.footer-links.bg-white a:hover {
+    color: var(--accent-blue) !important;
+}
