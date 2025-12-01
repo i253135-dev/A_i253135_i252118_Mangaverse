@@ -1,0 +1,222 @@
+/* Body Background */
+body {
+    background-image: url('https://i.imgur.com/vH1Zf9z.jpeg'); /* Replace with your background image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide scrollbars if background is large */
+}
+
+/* Login Container */
+.login-container {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Ensures image corners are rounded */
+    width: 80%;
+    max-width: 900px; /* Max width for the whole card */
+    min-height: 550px; /* Ensure a decent height */
+}
+
+/* Left Section - Login Form */
+.login-form-section {
+    flex: 1; /* Takes up available space */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #333;
+}
+
+.welcome-heading {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.welcome-subtext {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Custom Form Elements */
+.form-label-custom {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 5px;
+    display: block; /* Ensure label is on its own line */
+}
+
+.form-control-custom {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 20px; /* Spacing between inputs */
+    outline: none;
+    transition: border-color 0.2s;
+}
+.form-control-custom:focus {
+    border-color: #ff6347; /* Tomato red focus color */
+}
+/* Adjust Bootstrap's mb-3 equivalent for form-control-custom */
+.mb-3:last-of-type .form-control-custom {
+    margin-bottom: 0; /* Remove extra margin below the last input if mb-3 is used */
+}
+
+
+/* Checkbox and Forgot Password */
+.form-check-input-custom {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    appearance: none; /* Hide default checkbox */
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
+.form-check-input-custom:checked {
+    background-color: #ff6347; /* Tomato red when checked */
+    border-color: #ff6347;
+}
+.form-check-input-custom:checked::before {
+    content: '\2713'; /* Checkmark symbol */
+    display: block;
+    color: white;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.form-check-label-custom {
+    font-size: 0.9rem;
+    color: #555;
+    vertical-align: middle;
+}
+
+.forgot-password-link {
+    font-size: 0.9rem;
+    color: #ff6347; /* Tomato red */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.forgot-password-link:hover {
+    color: #e04b33;
+}
+
+/* Custom Buttons */
+.btn-custom {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* For link-styled buttons */
+}
+
+.btn-primary-custom {
+    background-color: #ff6347; /* Tomato red */
+    color: #ffffff;
+    border: 1px solid #ff6347;
+}
+.btn-primary-custom:hover {
+    background-color: #e04b33;
+    border-color: #e04b33;
+}
+
+.btn-google-custom {
+    background-color: #ffffff;
+    color: #555;
+    border: 1px solid #ddd;
+}
+.btn-google-custom:hover {
+    background-color: #f0f0f0;
+    border-color: #ccc;
+}
+
+.btn-google-custom img {
+    margin-right: 10px;
+}
+
+/* Sign Up Text */
+.signup-text {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+}
+.signup-link {
+    color: #ff6347; /* Tomato red */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+.signup-link:hover {
+    color: #e04b33;
+}
+
+/* Right Section - Decorative Image */
+.login-image-section {
+    flex: 1; /* Takes up available space */
+    background-color: #ff6347; /* Background color behind the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px; /* Padding inside for the image */
+}
+
+.decorative-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensure the image fits within the section */
+    display: block; /* Remove extra space below image */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column; /* Stack sections vertically */
+        width: 95%;
+        min-height: auto;
+    }
+
+    .login-form-section {
+        padding: 30px;
+    }
+
+    .login-image-section {
+        height: 250px; /* Give the image section a fixed height on small screens */
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .login-form-section {
+        padding: 20px;
+    }
+    .welcome-heading {
+        font-size: 1.8rem;
+    }
+    .welcome-subtext {
+        font-size: 0.85rem;
+    }
+}
