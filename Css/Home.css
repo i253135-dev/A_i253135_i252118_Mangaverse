@@ -1,0 +1,292 @@
+/* --- CSS Variables (Shared) --- */
+:root {
+    --primary-dark: #14162b; /* Deep dark blue for nav/footer */
+    --accent-pink: #ff9eb5;
+    --accent-blue: #3facff;
+    --text-light: #ffffff;
+}
+
+/* --- Global Resets & Base Styles --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    color: var(--text-light);
+    background-color: #0f0f1a;
+}
+h1, h2, h3, .brand-font {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+/* ---------------------------------- */
+/* --- A. HEADER Specific Styles --- */
+/* ---------------------------------- */
+.navbar-custom {
+    background-color: var(--primary-dark);
+    padding: 25px 0 35px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    height: 12rem;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-link {
+    color: #ccc !important;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--text-light) !important;
+}
+
+.manga-logo {
+    font-family: 'Bangers', cursive;
+    font-size: 4rem;
+    background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 50%, #ff6b35 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+}
+
+.search-bar {
+    background: #fff;
+    border-radius: 50px;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    width: 280px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    width: 100%;
+    margin-left: 10px;
+    color: #333;
+}
+
+.btn-login {
+    background-color: var(--accent-pink);
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px 20px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+.btn-login:hover {
+    background-color: #ffc2d1;
+}
+
+.icon-btn {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+.icon-btn:hover {
+    color: var(--accent-pink);
+}
+
+/* ------------------------------------------- */
+/* --- B. SPOTLIGHT CARD (MAIN CONTENT) Styles --- */
+/* ------------------------------------------- */
+
+/* Global Body and Background */
+.bg-dark-blue {
+    background-color: #212130; /* Main body background color, slightly darker than the card */
+}
+
+/* Main Card Container */
+.spotlight-card {
+    width: 90%;
+    max-width: 900px;
+    height: 500px; /* Fixed height for the visual effect */
+    background-color: #2a2a3e; /* Dark, slightly purple background for the card */
+    border-radius: 20px;
+    overflow: hidden; /* Important to contain the image */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    position: relative; /* Context for absolute positioning if needed */
+    color: #ffffff;
+    font-family: sans-serif;
+}
+
+/* Left Column - Manga Content */
+.manga-cover-container {
+    width: 45%;
+    max-width: 200px;
+}
+.manga-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.manga-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* Carousel Dots */
+.dots-container {
+    display: flex;
+    gap: 8px;
+}
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #555577; /* Inactive dot color */
+    border-radius: 50%;
+    opacity: 0.8;
+}
+.active-dot {
+    background-color: #4CAF50; /* Green active dot */
+    opacity: 1;
+}
+
+/* Right Column - Character Art (The unique part) */
+.character-art-container {
+    position: relative;
+    /* This column is crucial. We use it as a container for the image */
+}
+
+.character-art-image {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%); /* Center the image vertically */
+    height: 100%; /* Make the image take up the full height of the container */
+    width: auto;
+    object-fit: contain;
+
+    /* Styling for the dimmed, low-contrast effect */
+    opacity: 0.6; /* Dim the image */
+    filter: grayscale(100%) brightness(1.2); /* Enhance the low-contrast, muted look */
+}
+
+/* ---------------------------------- */
+/* --- C. FOOTER Specific Styles --- */
+/* ---------------------------------- */
+footer {
+    background-color: var(--primary-dark);
+    padding: 60px 0 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.footer-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--accent-blue);
+}
+
+.footer-logo {
+    font-family: 'Bangers', cursive;
+    font-size: 2.5rem;
+    background: linear-gradient(to bottom, #4facfe, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+}
+
+.contact-info p {
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+.contact-info p:first-of-type, .contact-info p:nth-of-type(3) {
+    font-weight: bold;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.copyright-text {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.social-link {
+    display: inline-flex;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin: 0 10px;
+    transition: transform 0.2s, background-color 0.3s;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Specific social colors for the icon itself */
+.social-fb i { color: #1877f2; }
+.social-insta i {
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.social-tw i { color: #1da1f2; }
+.social-disc i { color: #5865F2; }
+
+.social-link:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: var(--accent-pink);
+}
+
+/* Ensure privacy/terms links are dark text on white background as in original intent */
+.footer-links.bg-white a {
+    color: #333 !important;
+}
+.footer-links.bg-white a:hover {
+    color: var(--accent-blue) !important;
+}
+
+/* Responsive adjustments (placed last for priority) */
+@media (max-width: 768px) {
+    .spotlight-card {
+        height: auto;
+        padding-bottom: 30px;
+    }
+    .row {
+        flex-direction: column; /* Stack columns on small screens */
+    }
+    .col-6 {
+        width: 100%;
+        text-align: center;
+    }
+    .manga-cover-container {
+        margin: 0 auto; /* Center cover */
+    }
+    .dots-container {
+        justify-content: center;
+    }
+    .character-art-container {
+        display: none; /* Hide art on very small screens to save space */
+    }
+}
