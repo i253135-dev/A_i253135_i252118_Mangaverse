@@ -12,13 +12,13 @@
     <style>
         /* --- CSS Variables (Shared) --- */
         :root {
-            --primary-dark: #14162b; /* Deep dark blue for nav/footer */
+            --primary-dark: #14162b; 
             --accent-pink: #ff9eb5;
             --accent-blue: #3facff;
             --text-light: #ffffff;
         }
 
-        /* --- Global Resets & Base Styles --- */
+        
         body {
             margin: 0;
             padding: 0;
@@ -31,13 +31,11 @@
             text-transform: uppercase;
         }
         .container {
-            /* Standard container max width for the header/footer */
+            
             max-width: 1140px; 
         }
 
-        /* ---------------------------------- */
-        /* --- A. HEADER Specific Styles --- */
-        /* ---------------------------------- */
+       
         .navbar-custom {
             background-color: var(--primary-dark);
             padding: 25px 0 35px 0;
@@ -104,16 +102,13 @@
             color: var(--accent-pink);
         }
 
-        /* ------------------------------------------- */
-        /* --- B. SPOTLIGHT CARD (MAIN CONTENT) Styles --- */
-        /* ------------------------------------------- */
+        
         .bg-dark-blue {
             background-color: #0f0f1a;
             width: 100%;
         }
         .spotlight-card {
             max-width: 1200px;
-            /* FIX 1: Reduced height slightly for better balance */
             height: 500px; 
             background-color: #1a1e30;
             border-radius: 10px;
@@ -125,7 +120,6 @@
             height: 100%;
         }
         .manga-cover-container {
-            /* FIX 2: Reduced max-width for better proportions */
             width: 180px; 
             max-width: 180px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
@@ -160,22 +154,21 @@
         .character-art-container {
             position: relative;
             background-color: #384252;
-            overflow: hidden; /* Added to clip the image when pushing it off-screen */
+            overflow: hidden; 
         }
         .character-art-image {
             position: absolute;
             bottom: 0;
-            /* FIX 3: Push image slightly off-screen to prevent content overlap */
             right: -50px; 
-            /* FIX 4: Increased height for better background coverage */
+            
             height: 110%; 
             width: auto;
             object-fit: cover; 
-            /* Filter to give it a more stylized/line-art look against the background */
+            
             filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); 
         }
 
-        /* Media Queries for Responsiveness */
+        
         @media (max-width: 992px) {
             .manga-title {
                 font-size: 2.5rem;
@@ -195,7 +188,7 @@
                 padding: 30px;
             }
             .character-art-container {
-                display: none !important; /* Hide character art on small screens */
+                display: none !important; 
             }
             .manga-cover-container {
                 width: 150px;
@@ -209,9 +202,7 @@
             }
         }
 
-        /* ---------------------------------- */
-        /* --- C. FOOTER Specific Styles --- */
-        /* ---------------------------------- */
+        
         footer {
             background-color: var(--primary-dark);
             padding: 60px 0 20px;
@@ -334,7 +325,7 @@
                 
                 <div class="col-6 d-flex flex-column justify-content-center align-items-start p-5">
                     <div class="manga-cover-container">
-                        <img src="https://i.imgur.com/mYvYv0z.jpeg" alt="Jujutsu Kaisen Volume 1 Cover" class="manga-cover">
+                        <img src="https://i.postimg.cc/JhMC6zHZ/Homepage-jujutsukaisen.jpg" alt="Jujutsu Kaisen Volume 1 Cover" class="manga-cover">
                     </div>
                     <h2 class="manga-title mt-4">Jujutsu Kaisen <br> Volume 1</h2>
                     
@@ -348,7 +339,7 @@
                 </div>
 
                 <div class="col-6 character-art-container d-none d-md-flex"> 
-                    <img src="https://i.imgur.com/gK2gP8p.png" alt="Anime Character Line Art" class="character-art-image">
+                    <img src="https://i.postimg.cc/zf8YtGHR/Homepage-image.jpg" alt="Anime Character Line Art" class="character-art-image">
                 </div>
             </div>
         </div>

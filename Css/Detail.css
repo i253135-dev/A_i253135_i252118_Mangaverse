@@ -1,41 +1,32 @@
-/* --- CSS Variables (Shared across all components) --- */
 :root {
-    --primary-dark: #14162b; /* Deep dark blue for nav/footer */
+    --primary-dark: #14162b;
     --accent-pink: #ff9eb5;
     --accent-blue: #3facff;
     --text-light: #ffffff;
 }
 
-/* --- Global Resets & Base Styles (Merged) --- */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', 'Arial', sans-serif;
     color: var(--text-light);
-    background-color: #0f0f1a; /* Base dark background from header/footer */
+    background-color: #0f0f1a;
 }
 
-/* Global Typography */
 h1, h2, h3, .brand-font {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
 }
 
-/* Specific body style used by the product grid content */
 .bg-dark-gray {
-    background-color: #31353e; /* Darker background color for content area */
+    background-color: #31353e;
     color: #ffffff;
     font-family: Arial, sans-serif;
 }
 
 .container {
-    max-width: 1000px; /* Limit the width for content and grid */
+    max-width: 1000px;
 }
-
-
-/* ---------------------------------- */
-/* --- A. HEADER Specific Styles --- */
-/* ---------------------------------- */
 
 .navbar-custom {
     background-color: var(--primary-dark);
@@ -103,12 +94,6 @@ h1, h2, h3, .brand-font {
     color: var(--accent-pink);
 }
 
-
-/* ---------------------------------- */
-/* --- B. PRODUCT GRID Styles --- */
-/* ---------------------------------- */
-
-/* Filter Icon Styling */
 .filter-icon-container {
     margin-bottom: 20px;
     padding-left: 10px;
@@ -118,15 +103,12 @@ h1, h2, h3, .brand-font {
     color: #aaaaaa;
 }
 
-/* CSS Grid for Product Layout */
 .manga-grid {
     display: grid;
-    /* Create a responsive grid: start with 2 columns, expand up to 4 */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px; /* Spacing between cards */
+    gap: 20px;
 }
 
-/* Individual Manga Card Styling */
 .manga-card {
     display: flex;
     flex-direction: column;
@@ -152,7 +134,6 @@ h1, h2, h3, .brand-font {
     margin-bottom: 15px;
 }
 
-/* Rating Badge */
 .rating-badge {
     position: absolute;
     left: 10px;
@@ -167,7 +148,6 @@ h1, h2, h3, .brand-font {
     z-index: 10;
 }
 
-/* Text Styling */
 .manga-title {
     font-size: 0.95rem;
     font-weight: 500;
@@ -183,19 +163,13 @@ h1, h2, h3, .brand-font {
 .manga-price {
     font-size: 1rem;
     font-weight: bold;
-    color: #ff6347; /* Red/Orange for price */
+    color: #ff6347;
     margin-top: 5px;
 }
 
-/* Adjustment for specific cards to maintain alignment */
 .manga-card:nth-child(4) .manga-title {
     min-height: 40px;
 }
-
-
-/* ---------------------------------- */
-/* --- C. FOOTER Specific Styles --- */
-/* ---------------------------------- */
 
 footer {
     background-color: var(--primary-dark);
@@ -254,7 +228,6 @@ footer {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Specific social colors for the icon itself */
 .social-fb i { color: #1877f2; }
 .social-insta i {
     background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
@@ -280,7 +253,6 @@ footer {
     color: var(--accent-pink);
 }
 
-/* Ensure privacy/terms links are dark text on white background as in original intent */
 .footer-links.bg-white a {
     color: #333 !important;
 }

@@ -1,30 +1,28 @@
-/* Body Background */
+
 body {
-    background-image: url('https://i.imgur.com/vH1Zf9z.jpeg'); /* Replace with your background image URL */
+    background-image: url('https://i.postimg.cc/mrBWXg1M/Login-Backdrop.jpg'); /* Replace with your background image URL */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Hide scrollbars if background is large */
+    overflow: hidden; 
 }
 
-/* Login Container */
 .login-container {
     display: flex;
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    overflow: hidden; /* Ensures image corners are rounded */
+    overflow: hidden; 
     width: 80%;
-    max-width: 900px; /* Max width for the whole card */
-    min-height: 550px; /* Ensure a decent height */
+    max-width: 900px; 
+    min-height: 550px; 
 }
 
-/* Left Section - Login Form */
 .login-form-section {
-    flex: 1; /* Takes up available space */
+    flex: 1; 
     padding: 40px;
     display: flex;
     flex-direction: column;
@@ -45,13 +43,12 @@ body {
     margin-bottom: 30px;
 }
 
-/* Custom Form Elements */
 .form-label-custom {
     font-size: 0.9rem;
     font-weight: 500;
     color: #555;
     margin-bottom: 5px;
-    display: block; /* Ensure label is on its own line */
+    display: block; 
 }
 
 .form-control-custom {
@@ -60,37 +57,35 @@ body {
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 1rem;
-    margin-bottom: 20px; /* Spacing between inputs */
+    margin-bottom: 20px; 
     outline: none;
     transition: border-color 0.2s;
 }
 .form-control-custom:focus {
-    border-color: #ff6347; /* Tomato red focus color */
+    border-color: #ff6347; 
 }
-/* Adjust Bootstrap's mb-3 equivalent for form-control-custom */
 .mb-3:last-of-type .form-control-custom {
-    margin-bottom: 0; /* Remove extra margin below the last input if mb-3 is used */
+    margin-bottom: 0; 
 }
 
 
-/* Checkbox and Forgot Password */
 .form-check-input-custom {
     width: 18px;
     height: 18px;
     margin-right: 8px;
     border: 1px solid #ccc;
     vertical-align: middle;
-    appearance: none; /* Hide default checkbox */
+    appearance: none; 
     border-radius: 4px;
     position: relative;
     cursor: pointer;
 }
 .form-check-input-custom:checked {
-    background-color: #ff6347; /* Tomato red when checked */
+    background-color: #ff6347; 
     border-color: #ff6347;
 }
 .form-check-input-custom:checked::before {
-    content: '\2713'; /* Checkmark symbol */
+    content: '\2713'; 
     display: block;
     color: white;
     font-size: 14px;
@@ -111,7 +106,7 @@ body {
 
 .forgot-password-link {
     font-size: 0.9rem;
-    color: #ff6347; /* Tomato red */
+    color: #ff6347; 
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -119,7 +114,6 @@ body {
     color: #e04b33;
 }
 
-/* Custom Buttons */
 .btn-custom {
     padding: 12px 20px;
     border-radius: 8px;
@@ -130,11 +124,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none; /* For link-styled buttons */
+    text-decoration: none; 
 }
 
 .btn-primary-custom {
-    background-color: #ff6347; /* Tomato red */
+    background-color: #ff6347; 
     color: #ffffff;
     border: 1px solid #ff6347;
 }
@@ -157,14 +151,13 @@ body {
     margin-right: 10px;
 }
 
-/* Sign Up Text */
 .signup-text {
     font-size: 0.9rem;
     color: #666;
     text-align: center;
 }
 .signup-link {
-    color: #ff6347; /* Tomato red */
+    color: #ff6347; 
     text-decoration: none;
     font-weight: bold;
     transition: color 0.2s;
@@ -173,28 +166,26 @@ body {
     color: #e04b33;
 }
 
-/* Right Section - Decorative Image */
 .login-image-section {
-    flex: 1; /* Takes up available space */
-    background-color: #ff6347; /* Background color behind the image */
+    flex: 1; 
+    background-color: #ff6347; 
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 20px; /* Padding inside for the image */
+    padding: 20px; 
 }
 
 .decorative-image {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* Ensure the image fits within the section */
-    display: block; /* Remove extra space below image */
+    object-fit: contain; 
+    display: block; 
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     .login-container {
-        flex-direction: column; /* Stack sections vertically */
+        flex-direction: column; 
         width: 95%;
         min-height: auto;
     }
@@ -204,7 +195,7 @@ body {
     }
 
     .login-image-section {
-        height: 250px; /* Give the image section a fixed height on small screens */
+        height: 250px; 
         padding: 15px;
     }
 }

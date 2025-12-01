@@ -1,12 +1,10 @@
-/* --- CSS Variables --- */
 :root {
-    --primary-dark: #14162b; /* Deep dark blue for nav/footer */
+    --primary-dark: #14162b; 
     --accent-pink: #ff9eb5;
     --accent-blue: #3facff;
     --text-light: #ffffff;
 }
 
-/* --- Global Resets (needed for proper display) --- */
 body {
     margin: 0;
     padding: 0;
@@ -19,7 +17,6 @@ h1, h2, h3, .brand-font {
     text-transform: uppercase;
 }
 
-/* --- Footer Specific Styles --- */
 footer {
     background-color: var(--primary-dark);
     padding: 60px 0 20px;
@@ -77,7 +74,6 @@ footer {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Specific social colors for the icon itself */
 .social-fb i { color: #1877f2; }
 .social-insta i {
     background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
@@ -103,7 +99,6 @@ footer {
     color: var(--accent-pink);
 }
 
-/* Ensure privacy/terms links are dark text on white background as in original intent */
 .footer-links.bg-white a {
     color: #333 !important;
 }

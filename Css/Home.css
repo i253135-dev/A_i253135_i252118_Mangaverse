@@ -1,12 +1,10 @@
-/* --- CSS Variables (Shared) --- */
 :root {
-    --primary-dark: #14162b; /* Deep dark blue for nav/footer */
+    --primary-dark: #14162b;
     --accent-pink: #ff9eb5;
     --accent-blue: #3facff;
     --text-light: #ffffff;
 }
 
-/* --- Global Resets & Base Styles --- */
 body {
     margin: 0;
     padding: 0;
@@ -19,9 +17,6 @@ h1, h2, h3, .brand-font {
     text-transform: uppercase;
 }
 
-/* ---------------------------------- */
-/* --- A. HEADER Specific Styles --- */
-/* ---------------------------------- */
 .navbar-custom {
     background-color: var(--primary-dark);
     padding: 25px 0 35px 0;
@@ -95,30 +90,23 @@ h1, h2, h3, .brand-font {
     color: var(--accent-pink);
 }
 
-/* ------------------------------------------- */
-/* --- B. SPOTLIGHT CARD (MAIN CONTENT) Styles --- */
-/* ------------------------------------------- */
-
-/* Global Body and Background */
 .bg-dark-blue {
-    background-color: #212130; /* Main body background color, slightly darker than the card */
+    background-color: #212130;
 }
 
-/* Main Card Container */
 .spotlight-card {
     width: 90%;
     max-width: 900px;
-    height: 500px; /* Fixed height for the visual effect */
-    background-color: #2a2a3e; /* Dark, slightly purple background for the card */
+    height: 500px;
+    background-color: #2a2a3e;
     border-radius: 20px;
-    overflow: hidden; /* Important to contain the image */
+    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    position: relative; /* Context for absolute positioning if needed */
+    position: relative;
     color: #ffffff;
     font-family: sans-serif;
 }
 
-/* Left Column - Manga Content */
 .manga-cover-container {
     width: 45%;
     max-width: 200px;
@@ -136,7 +124,6 @@ h1, h2, h3, .brand-font {
     line-height: 1.2;
 }
 
-/* Carousel Dots */
 .dots-container {
     display: flex;
     gap: 8px;
@@ -144,38 +131,32 @@ h1, h2, h3, .brand-font {
 .dot {
     width: 10px;
     height: 10px;
-    background-color: #555577; /* Inactive dot color */
+    background-color: #555577;
     border-radius: 50%;
     opacity: 0.8;
 }
 .active-dot {
-    background-color: #4CAF50; /* Green active dot */
+    background-color: #4CAF50;
     opacity: 1;
 }
 
-/* Right Column - Character Art (The unique part) */
 .character-art-container {
     position: relative;
-    /* This column is crucial. We use it as a container for the image */
 }
 
 .character-art-image {
     position: absolute;
     top: 50%;
     left: 0;
-    transform: translateY(-50%); /* Center the image vertically */
-    height: 100%; /* Make the image take up the full height of the container */
+    transform: translateY(-50%);
+    height: 100%;
     width: auto;
     object-fit: contain;
 
-    /* Styling for the dimmed, low-contrast effect */
-    opacity: 0.6; /* Dim the image */
-    filter: grayscale(100%) brightness(1.2); /* Enhance the low-contrast, muted look */
+    opacity: 0.6;
+    filter: grayscale(100%) brightness(1.2);
 }
 
-/* ---------------------------------- */
-/* --- C. FOOTER Specific Styles --- */
-/* ---------------------------------- */
 footer {
     background-color: var(--primary-dark);
     padding: 60px 0 20px;
@@ -233,7 +214,6 @@ footer {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Specific social colors for the icon itself */
 .social-fb i { color: #1877f2; }
 .social-insta i {
     background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
@@ -259,7 +239,6 @@ footer {
     color: var(--accent-pink);
 }
 
-/* Ensure privacy/terms links are dark text on white background as in original intent */
 .footer-links.bg-white a {
     color: #333 !important;
 }
@@ -267,26 +246,25 @@ footer {
     color: var(--accent-blue) !important;
 }
 
-/* Responsive adjustments (placed last for priority) */
 @media (max-width: 768px) {
     .spotlight-card {
         height: auto;
         padding-bottom: 30px;
     }
     .row {
-        flex-direction: column; /* Stack columns on small screens */
+        flex-direction: column;
     }
     .col-6 {
         width: 100%;
         text-align: center;
     }
     .manga-cover-container {
-        margin: 0 auto; /* Center cover */
+        margin: 0 auto;
     }
     .dots-container {
         justify-content: center;
     }
     .character-art-container {
-        display: none; /* Hide art on very small screens to save space */
+        display: none;
     }
 }
