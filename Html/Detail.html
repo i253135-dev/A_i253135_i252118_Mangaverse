@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MangaVerse Product Detail</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS Variables (Merged) --- */
+        :root {
+            --primary-dark: #14162b; /* Deep dark blue for nav/footer */
+            --accent-pink: #ff9eb5;
+            --accent-blue: #3facff;
+            --text-light: #ffffff;
+        }
+
+        /* --- Global Resets (Merged) --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', 'Arial', sans-serif;
+            color: var(--text-light);
+            background-color: #0f0f1a;
+        }
+        h1, h2, h3, .brand-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        
+        /* --- Header Specific Styles --- */
+        .navbar-custom {
+            background-color: var(--primary-dark);
+            padding: 25px 0 35px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            height: 12rem;
+            position: relative;
+            z-index: 2;
+        }
+        .nav-link {
+            color: #ccc !important;
+            font-weight: 500;
+            font-size: 1.2rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: var(--text-light) !important;
+        }
+        .manga-logo {
+            font-family: 'Bangers', cursive;
+            font-size: 4rem;
+            background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 50%, #ff6b35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+        }
+        .search-bar {
+            background: #fff;
+            border-radius: 50px;
+            padding: 5px 20px;
+            display: flex;
+            align-items: center;
+            width: 280px;
+        }
+        .search-bar input {
+            border: none;
+            outline: none;
+            width: 100%;
+            margin-left: 10px;
+            color: #333;
+        }
+        .btn-login {
+            background-color: var(--accent-pink);
+            color: #000;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 5px 20px;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-login:hover {
+            background-color: #ffc2d1;
+        }
+        .icon-btn {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-left: 15px;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .icon-btn:hover {
+            color: var(--accent-pink);
+        }
+        
+        /* --- Product Detail Specific Styles --- */
+        .bg-dark-gray {
+            background-color: #31353e; /* Dark background color matching the image */
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 1000px; /* Limit the width of the main content */
+        }
+        .product-main-info {
+            display: flex;
+            gap: 40px; 
+            align-items: flex-start;
+        }
+        .product-image-container {
+            flex-shrink: 0;
+            width: 300px; 
+        }
+        .product-cover {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        .product-details {
+            flex-grow: 1;
+        }
+        .product-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 5px;
+        }
+        .product-author {
+            font-size: 1.2rem;
+            color: #aaaaaa;
+            margin-bottom: 15px;
+        }
+        .stock-status {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .product-price {
+            font-size: 1.2rem;
+            color: #dddddd;
+            margin-bottom: 25px;
+        }
+        .price-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-left: 10px;
+        }
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 200px;
+        }
+        .btn-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn-buy-now {
+            background-color: #ff8c00;
+            color: #ffffff;
+        }
+        .btn-buy-now:hover {
+            background-color: #e07b00;
+        }
+        .btn-add-to-cart {
+            background-color: #4169e1;
+            color: #ffffff;
+        }
+        .btn-add-to-cart:hover {
+            background-color: #3553c4;
+        }
+        .btn-action .icon {
+            font-size: 1.1rem;
+            margin-right: 8px;
+        }
+        .separator {
+            border-color: #444;
+            margin: 40px 0;
+        }
+        .product-section {
+            margin-bottom: 30px;
+            padding: 15px 0;
+        }
+        .section-heading {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ff8c00;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ff8c00;
+            display: inline-block;
+            padding-bottom: 3px;
+            text-transform: uppercase;
+        }
+        .description-section .section-heading {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+        }
+        .section-content {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #cccccc;
+        }
+        @media (max-width: 768px) {
+            .product-main-info {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .product-image-container {
+                width: 60%; 
+                max-width: 300px;
+                margin-bottom: 20px;
+            }
+            .product-details {
+                text-align: center;
+            }
+            .action-buttons {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
+        /* --- Footer Specific Styles --- */
+        footer {
+            background-color: var(--primary-dark);
+            padding: 60px 0 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            z-index: 2;
+        }
+        .footer-heading {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+        }
+        .footer-logo {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5rem;
+            background: linear-gradient(to bottom, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+        }
+        .contact-info p {
+            margin-bottom: 5px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+        .contact-info p:first-of-type, .contact-info p:nth-of-type(3) {
+            font-weight: bold;
+            color: #fff;
+            margin-top: 10px;
+        }
+        .copyright-text {
+            color: rgba(255, 255, 255, 0.6) !important;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+        .social-link {
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin: 0 10px;
+            transition: transform 0.2s, background-color 0.3s;
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .social-fb i { color: #1877f2; }
+        .social-insta i {
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .social-tw i { color: #1da1f2; }
+        .social-disc i { color: #5865F2; }
+        .social-link:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin: 0 5px;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: var(--accent-pink);
+        }
+        .footer-links.bg-white a {
+            color: #333 !important;
+        }
+        .footer-links.bg-white a:hover {
+            color: var(--accent-blue) !important;
+        }
+    </style>
+</head>
+<body class="bg-dark-gray">
+    
+    <nav class="navbar-custom">
+        <div class="container">
+            <div class="d-flex justify-content-center mb-4">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Browse Manga</a>
+                <a href="#" class="nav-link text-white">About us</a>
+                <a href="#" class="nav-link">Contact us</a>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center">
+                
+                <div class="d-none d-md-block" style="width: 300px;">
+                    <div class="search-bar">
+                        <i class="fas fa-search text-muted"></i>
+                        <input type="text" placeholder='Search "one piece"...'>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <div class="manga-logo">MANGAVERSE</div>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-end" style="width: 300px;">
+                    <button class="btn btn-login me-3">Login</button>
+                    <div class="icon-btn"><i class="far fa-heart"></i></div>
+                    <div class="icon-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5rem;">1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container py-5">
+        
+        <div class="product-main-info mb-5">
+            
+            <div class="product-image-container">
+                <img src="https://i.imgur.com/Kz9r5xV.png" alt="Bleach (3-In-1 Edition) Volume 17 Cover" class="product-cover">
+            </div>
+
+            <div class="product-details">
+                <h1 class="product-title">Bleach (3-In-1 Edition): Includes Vols. 49, 50 & 51 (Volume 17)</h1>
+                <p class="product-author">Tite Kubo</p>
+                
+                <div class="stock-status">
+                    In Stock
+                </div>
+                
+                <p class="product-price">Our Price:<span class="price-value">Rs.3325</span></p>
+
+                <div class="action-buttons">
+                    <button class="btn-action btn-buy-now">
+                        <span class="icon">&#x1F6D2;</span> Buy Now
+                    </button>
+                    <button class="btn-action btn-add-to-cart">
+                        <span class="icon">&#x1F6D2;</span> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <hr class="separator">
+
+        <div class="product-section description-section">
+            <h3 class="section-heading">Description</h3>
+            <p class="section-content">
+                Ichigo Kurosaki never asked for the ability to see ghosts - he was born with the gift. When his family is attacked by a Hollow-a malevolent lost soul-Ichigo becomes a Soul Reaper, dedicating his life to protecting the innocent and helping the tortured spirits themselves find peace. Find out why Tite Kubo’s Bleach has become an international manga smash-hit! The war with Aizen is finally over, but the aftermath is just beginning. Ichigo lost his Soul Reaper powers in the last battle, and he now must try to live the quiet life of an ordinary mortal. But his attempts at being average are interrupted by a mysterious man who claims he can help Ichigo regain his powers. Who is this stranger, and what are his real motives...?
+            </p>
+        </div>
+
+        <hr class="separator">
+
+        <div class="product-section author-section">
+            <h3 class="section-heading">About the Author</h3>
+            <p class="section-content">
+                Bleach is author Tite Kubo's second title. Kubo made his debut with ZOMBIEPOWDER, a four-volume series for Weekly Shonen Jump. To date, Bleach has been translated into numerous languages and has also inspired an animated TV series that began airing in Japan in 2004. Beginning its serialization in 2001, Bleach is still a mainstay in the pages of Weekly Shonen Jump. In 2005, Bleach was awarded the prestigious Shogakukan Manga Award in the shonen (boys) category.
+            </p>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row align-items-center text-center text-md-start">
+                
+                <div class="col-md-4 mb-4 mb-md-0 text-center text-md-start">
+                    <div class="footer-logo mb-2">MANGAVERSE</div>
+                    <small class="copyright-text">&copy; MANGAVERSE TO ALL RIGHTS RESERVED</small>
+                </div>
+
+                <div class="col-md-4 mb-4 mb-md-0 text-center">
+                    <div class="footer-heading">CONTACT</div>
+                    <div class="contact-info">
+                        <p>Email</p>
+                        <p>support@mangaverse.com</p>
+                        <p>Phone</p>
+                        <p>+92253135000</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 text-center text-md-end">
+                    <div class="footer-heading">JOIN NOW</div>
+                    <div class="mb-3">
+                        <a href="#" class="social-link social-fb"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link social-insta"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link social-tw"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link social-disc"><i class="fab fa-discord"></i></a>
+                    </div>
+                    <div class="footer-links bg-white d-inline-block px-3 py-1 rounded text-dark">
+                        <a href="#" class="text-dark fw-bold">About us</a> | 
+                        <a href="#" class="text-dark">Privacy Policy</a> | 
+                        <a href="#" class="text-dark">Terms</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
