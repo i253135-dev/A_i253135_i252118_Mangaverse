@@ -1,0 +1,112 @@
+/* --- CSS Variables --- */
+:root {
+    --primary-dark: #14162b; /* Deep dark blue for nav/footer */
+    --accent-pink: #ff9eb5;
+    --accent-blue: #3facff;
+    --text-light: #ffffff;
+}
+
+/* --- Global Resets (needed for proper display) --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    color: var(--text-light);
+    background-color: #0f0f1a;
+}
+h1, h2, h3, .brand-font {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+/* --- Footer Specific Styles --- */
+footer {
+    background-color: var(--primary-dark);
+    padding: 60px 0 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.footer-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--accent-blue);
+}
+
+.footer-logo {
+    font-family: 'Bangers', cursive;
+    font-size: 2.5rem;
+    background: linear-gradient(to bottom, #4facfe, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+}
+
+.contact-info p {
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+.contact-info p:first-of-type, .contact-info p:nth-of-type(3) {
+    font-weight: bold;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.copyright-text {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.social-link {
+    display: inline-flex;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin: 0 10px;
+    transition: transform 0.2s, background-color 0.3s;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Specific social colors for the icon itself */
+.social-fb i { color: #1877f2; }
+.social-insta i {
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.social-tw i { color: #1da1f2; }
+.social-disc i { color: #5865F2; }
+
+.social-link:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: var(--accent-pink);
+}
+
+/* Ensure privacy/terms links are dark text on white background as in original intent */
+.footer-links.bg-white a {
+    color: #333 !important;
+}
+.footer-links.bg-white a:hover {
+    color: var(--accent-blue) !important;
+}
